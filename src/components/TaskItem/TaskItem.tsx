@@ -28,7 +28,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
   };
 
   return (
-    <ListItem className={styles["task-container"]}>
+    <div className={styles["task-container"]}>
       <Checkbox checked={task.completed} onChange={handleToggle} />
       <ListItemText
         primary={
@@ -52,7 +52,7 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
       >
         <Trash2 />
       </IconButton>
-    </ListItem>
+    </div>
   );
 };
 
