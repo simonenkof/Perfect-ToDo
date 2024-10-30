@@ -1,0 +1,10 @@
+.header {
+  margin-block-end: 2rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  inline-size: 100%;
+}

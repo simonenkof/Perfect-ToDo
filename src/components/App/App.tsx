@@ -1,16 +1,19 @@
-import styles from "alo.module.css";
+import styles from "./App.module.css";
 import React from "react";
+import TaskInput from "..//TaskInput/TaskInput";
 import { Container, Typography } from "@mui/material";
 
 const App: React.FC = () => {
   return (
     <Container maxWidth="sm">
-      <header>
+      <header className={styles.header}>
         <Typography variant="h4" align="center" gutterBottom>
           Perfect ToDo
         </Typography>
       </header>
-      <main></main>
+      <main className={styles.main}>
+        <TaskInput />
+      </main>
     </Container>
   );
 };
