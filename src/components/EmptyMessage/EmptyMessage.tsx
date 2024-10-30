@@ -1,4 +1,4 @@
-import styles from "./TaskList.module.css";
+import styles from "./EmptyMessage.module.css";
 import React from "react";
 
 import { Typography } from "@mui/material";

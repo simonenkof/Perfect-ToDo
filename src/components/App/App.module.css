@@ -1,5 +1,13 @@
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   margin-block-end: 2rem;
+}
+
+.header__title {
+  margin-bottom: 0 !important;
 }
 
 .main {

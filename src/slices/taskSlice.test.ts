@@ -1,4 +1,4 @@
-import taskReducer, { addTask, toggleTask, moveTask } from "./taskSlice";
+import taskReducer, { addTask, toggleTask, deleteTask } from "./taskSlice";
 
 describe("taskSlice", () => {
   const initialState = {
@@ -33,15 +33,22 @@ describe("taskSlice", () => {
     expect(nextState.items[0].completed).toBe(true);
   });
 
-  it("должен переместить задачу", () => {
-    const task1 = addTask("Task 1");
-    const task2 = addTask("Task 2");
-    const stateWithTasks = taskReducer(taskReducer(initialState, task1), task2);
+  it("должен удалить задачу", () => {
+    const initialState = {
+      items: [
+        { id: 1, text: "Task 1", completed: false },
+        { id: 2, text: "Task 2", completed: false },
+        { id: 3, text: "Task 3", completed: true },
+      ],
+    };
 
-    const moveAction = moveTask({ fromIndex: 0, toIndex: 1 });
-    const nextState = taskReducer(stateWithTasks, moveAction);
+    const newState = taskReducer(initialState, deleteTask(2));
 
-    expect(nextState.items[0].text).toBe("Task 2");
-    expect(nextState.items[1].text).toBe("Task 1");
+    expect(newState.items).toHaveLength(2);
+    expect(newState.items.find((task) => task.id === 2)).toBeUndefined();
+    expect(newState.items).toEqual([
+      { id: 1, text: "Task 1", completed: false },
+      { id: 3, text: "Task 3", completed: true },
+    ]);
   });
 });

@@ -1,9 +1,10 @@
 import styles from "./TaskItem.module.css";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleTask } from "../../slices/taskSlice";
-import { ListItem, ListItemText, Checkbox } from "@mui/material";
+import { toggleTask, deleteTask } from "../../slices/taskSlice";
+import { ListItem, ListItemText, Checkbox, IconButton } from "@mui/material";
 import { clsx } from "clsx";
+import { Trash2 } from "lucide-react";
 
 interface Task {
   id: number;
@@ -20,6 +21,10 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
 
   const handleToggle = () => {
     dispatch(toggleTask(task.id));
+  };
+
+  const handleDelete = () => {
+    dispatch(deleteTask(task.id));
   };
 
   return (
@@ -40,6 +45,13 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
           />
         }
       />
+      <IconButton
+        aria-label="delete"
+        onClick={handleDelete}
+        className={styles["delete-button"]}
+      >
+        <Trash2 />
+      </IconButton>
     </ListItem>
   );
 };

@@ -31,16 +31,11 @@ const taskSlice = createSlice({
         task.completed = !task.completed;
       }
     },
-    moveTask: (
-      state,
-      action: PayloadAction<{ fromIndex: number; toIndex: number }>
-    ) => {
-      const { fromIndex, toIndex } = action.payload;
-      const [movedTask] = state.items.splice(fromIndex, 1);
-      state.items.splice(toIndex, 0, movedTask);
+    deleteTask: (state, action: PayloadAction<number>) => {
+      state.items = state.items.filter((task) => task.id !== action.payload);
     },
   },
 });
 
-export const { addTask, toggleTask, moveTask } = taskSlice.actions;
+export const { addTask, toggleTask, deleteTask } = taskSlice.actions;
 export default taskSlice.reducer;
