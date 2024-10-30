@@ -1,0 +1,11 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 15px;
+}
+
+.list-container__item {
+  inline-size: 100%;
+  margin: 8px 0;
+}

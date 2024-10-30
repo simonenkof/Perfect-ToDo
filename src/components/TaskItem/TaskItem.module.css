@@ -1,0 +1,16 @@
+.task-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.task-container__text {
+  color: inherit;
+  text-wrap: wrap;
+}
+
+.text_completed {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+}

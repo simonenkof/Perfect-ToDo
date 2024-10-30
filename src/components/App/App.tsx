@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import React from "react";
 import TaskInput from "..//TaskInput/TaskInput";
+import TaskList from "../TaskList/TaskList";
 import { Container, Typography } from "@mui/material";
 
 const App: React.FC = () => {
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       </header>
       <main className={styles.main}>
         <TaskInput />
+        <TaskList />
       </main>
     </Container>
   );
